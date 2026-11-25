@@ -1,7 +1,7 @@
 name: clinic
 services:
   backend:
-    image: nkvjn/healtherpnext-opd:dev
+    image: nkvjn/healtherpnext-opd:latest
     networks:
       - clinic_network
     deploy:
@@ -22,7 +22,7 @@ services:
         condition: service_completed_successfully
 
   configurator:
-    image: nkvjn/healtherpnext-opd:dev
+    image: nkvjn/healtherpnext-opd:latest
     restart: "no"
     networks:
       - clinic_network
@@ -54,7 +54,7 @@ services:
       - logs:/home/frappe/frappe-bench/logs
 
   create-site:
-    image: nkvjn/healtherpnext-opd:dev
+    image: nkvjn/healtherpnext-opd:latest
     restart: "no"
     networks:
       - frappe_network
@@ -126,7 +126,7 @@ services:
       - db-data:/var/lib/mysql
 
   frontend:
-    image: nkvjn/healtherpnext-opd:dev
+    image: nkvjn/healtherpnext-opd:latest
     networks:
       - clinic_network
       - npm_default
@@ -154,7 +154,7 @@ services:
 #      - "8080:8080"
 
   queue-long:
-    image: nkvjn/healtherpnext-opd:dev
+    image: nkvjn/healtherpnext-opd:latest
     networks:
       - clinic_network
     deploy:
@@ -176,7 +176,7 @@ services:
         condition: service_completed_successfully
 
   queue-short:
-    image: nkvjn/healtherpnext-opd:dev
+    image: nkvjn/healtherpnext-opd:latest
     networks:
       - clinic_network
     deploy:
@@ -216,7 +216,7 @@ services:
         condition: on-failure
 
   scheduler:
-    image: nkvjn/healtherpnext-opd:dev
+    image: nkvjn/healtherpnext-opd:latest
     networks:
       - clinic_network
     deploy:
@@ -233,7 +233,7 @@ services:
         condition: service_completed_successfully
 
   websocket:
-    image: nkvjn/healtherpnext-opd:dev
+    image: nkvjn/healtherpnext-opd:latest
     networks:
       - clinic_network
     deploy:
