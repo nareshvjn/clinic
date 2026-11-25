@@ -2,7 +2,7 @@ name: clinic
 services:
   backend:
     build: .
-    image: frappe/erpnext:v16.60.0
+    image: nkvjn/healtherpnext-opd:dev
     networks:
       - clinic_network
     deploy:
@@ -24,10 +24,10 @@ services:
 
   configurator:
     build: .
-    image: frappe/erpnext:v16.60.0
+    image: nkvjn/healtherpnext-opd:dev
     restart: "no"
     networks:
-      - frappe_network
+      - clinic_network
     deploy:
       restart_policy:
         condition: "no"
@@ -57,7 +57,7 @@ services:
 
   create-site:
     build: .
-    image: frappe/erpnext:v16.60.0
+    image: nkvjn/healtherpnext-opd:dev
     restart: "no"
     networks:
       - frappe_network
@@ -130,7 +130,7 @@ services:
 
   frontend:
     build: .
-    image: frappe/erpnext:v16.60.0
+    image: nkvjn/healtherpnext-opd:dev
     networks:
       - clinic_network
       - npm_default
@@ -159,7 +159,7 @@ services:
 
   queue-long:
     build: .
-    image: frappe/erpnext:v16.60.0
+    image: nkvjn/healtherpnext-opd:dev
     networks:
       - clinic_network
     deploy:
@@ -182,7 +182,7 @@ services:
 
   queue-short:
     build: .
-    image: frappe/erpnext:v16.60.0
+    image: nkvjn/healtherpnext-opd:dev
     networks:
       - clinic_network
     deploy:
@@ -223,7 +223,7 @@ services:
 
   scheduler:
     build: .
-    image: frappe/erpnext:v16.60.0
+    image: nkvjn/healtherpnext-opd:dev
     networks:
       - clinic_network
     deploy:
@@ -241,7 +241,7 @@ services:
 
   websocket:
     build: .
-    image: frappe/erpnext:v16.60.0
+    image: nkvjn/healtherpnext-opd:dev
     networks:
       - clinic_network
     deploy:
