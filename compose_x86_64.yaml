@@ -57,7 +57,7 @@ services:
     image: nkvjn/healtherpnext-opd:latest
     restart: "no"
     networks:
-      - frappe_network
+      - clinic_network
     deploy:
       restart_policy:
         condition: none
@@ -129,7 +129,6 @@ services:
     image: nkvjn/healtherpnext-opd:latest
     networks:
       - clinic_network
-      - npm_default
     depends_on:
       - websocket
       - backend
@@ -150,8 +149,8 @@ services:
     volumes:
       - sites:/home/frappe/frappe-bench/sites
       - logs:/home/frappe/frappe-bench/logs
-#    ports:
-#      - "8080:8080"
+    ports:
+      - "8080:8080"
 
   queue-long:
     image: nkvjn/healtherpnext-opd:latest
@@ -210,7 +209,7 @@ services:
   redis-cache:
     image: redis:6.2-alpine
     networks:
-      - frappe_network
+      - clinic_network
     deploy:
       restart_policy:
         condition: on-failure
@@ -261,5 +260,3 @@ volumes:
 networks:
   clinic_network:
     driver: bridge
-  npm_default:
-    external: true
