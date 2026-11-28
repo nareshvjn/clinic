@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1
 
 # Supports multi-architecture builds (linux/arm64 for Oracle Ampere & linux/amd64)
-ARG ERPNEXT_VERSION=v16.60.0
+ARG ERPNEXT_VERSION=develop
 FROM frappe/erpnext:${ERPNEXT_VERSION}
 
 # Arguments for dependency apps and custom repo
